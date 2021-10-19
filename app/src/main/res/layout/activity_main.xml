@@ -66,6 +66,12 @@
             android:text="코루틴"
             android:layout_marginRight="30dp"
             ></Button>
+        <Button
+            android:id="@+id/room"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="룸"
+            ></Button>
 
     </LinearLayout>
 

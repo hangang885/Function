@@ -37,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding.coroutine.setOnClickListener {
             onClick(binding.coroutine)
         }
-
+        binding.room.setOnClickListener {
+            onClick(binding.room)
+        }
     }
 
     private fun onClick(view: View) {
@@ -62,6 +64,11 @@ class MainActivity : AppCompatActivity() {
                 var intent = Intent(this, coroutineActivity::class.java)
                 startActivity(intent)
             }
+            binding.room->{
+                var intent = Intent(this, RoomActivity::class.java)
+                startActivity(intent)
+            }
+
 
 
         }
