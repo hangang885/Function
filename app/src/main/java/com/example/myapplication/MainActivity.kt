@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
         binding.camera1.setOnClickListener {
             onClick(binding.camera1)
         }
-
+        binding.coroutine.setOnClickListener {
+            onClick(binding.coroutine)
+        }
 
     }
 
@@ -54,6 +56,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.camera1 -> {
                 var intent = Intent(this, Camera1Activity::class.java)
+                startActivity(intent)
+            }
+            binding.coroutine->{
+                var intent = Intent(this, coroutineActivity::class.java)
                 startActivity(intent)
             }
 

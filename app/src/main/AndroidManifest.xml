@@ -30,8 +30,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".coroutineActivity"
+            android:exported="true"
+            android:label="@string/title_activity_coroutine"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,9 +57,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity> <!-- 카메라 1 연결 -->
+            android:exported="true" /> <!-- 카메라 1 연결 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.myapplication.fileprovider"
