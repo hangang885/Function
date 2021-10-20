@@ -93,3 +93,64 @@ abstract class UserDatabase: RoomDatabase(){
     }
 
 }
+@Entity
+data class Login(
+    @ColumnInfo(name = "id")
+    val id:String,
+    @ColumnInfo(name = "pwd")
+    val pwd: String
+){
+    @PrimaryKey(autoGenerate = true) var number:Int =0
+
+}
+
+@Dao
+interface LoginDao{
+
+    @Query("Select * From Login")
+    fun getAll() : List<Login>
+
+    @Query("Delete from login where id=:id ")
+    fun deleteUserByName(id:String)
+
+    @Query("select * from Login where id=:id and pwd=:pwd")
+    fun idpwd(id:String,pwd:String):List<Login>
+
+
+
+
+    @Insert
+    fun insert(login: Login)
+
+    @Update
+    fun update(login: Login)
+
+    @Delete
+    fun delete(login: Login)
+}
+
+@Database(entities = [Login::class], version = 1)
+abstract class LoginDatabase: RoomDatabase(){
+    abstract fun loginDao():LoginDao
+
+    companion object{
+        private var instance: LoginDatabase? = null
+
+        @Synchronized
+        fun getInstance(context: Context): LoginDatabase?{
+            if(instance == null){
+                synchronized(LoginDatabase::class){
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        LoginDatabase::class.java,
+                        "login-database"
+                    ).build()
+                }
+            }
+
+            return instance
+        }
+
+    }
+
+}
