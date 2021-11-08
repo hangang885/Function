@@ -6,6 +6,14 @@ import android.os.Bundle
 import android.os.Handler
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.databinding.ActivitySplashBinding
+import android.content.pm.PackageManager
+
+import android.content.pm.PackageInfo
+import android.util.Base64
+import android.util.Log
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+
 
 class SplashActivity : AppCompatActivity() {
 
@@ -20,6 +28,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivitySplashBinding  .inflate(layoutInflater)
         setContentView(binding.root)
+        getHashKey()
 
         var handler:Handler = Handler()
         handler.postDelayed(Runnable {
@@ -29,6 +38,24 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }
         },3000)
+    }
+    private fun getHashKey() {
+        var packageInfo: PackageInfo? = null
+        try {
+            packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+        if (packageInfo == null) Log.e("KeyHash", "KeyHash:null")
+        for (signature in packageInfo!!.signatures) {
+            try {
+                val md: MessageDigest = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+            } catch (e: NoSuchAlgorithmException) {
+                Log.e("KeyHash", "Unable to get MessageDigest. signature=$signature", e)
+            }
+        }
     }
 
     override fun onPause() {

@@ -30,4 +30,127 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string-array name="hospitalList">
+        <item>가톨릭대학교의정부성모병원</item>
+        <item>강릉아산병원</item>
+        <item>강원대학교병원</item>
+        <item>구로성심병원</item>
+        <item>광개토병원</item>
+        <item>광주굿모닝병원</item>
+        <item>단국대학교의과대학부속병원</item>
+        <item>대전화병원</item>
+        <item>동국대학교의과대학경주병원</item>
+        <item>목포한국병원</item>
+        <item>삼성서울도담외과의원</item>
+        <item>새봄외과의원</item>
+        <item>새살로외과의원</item>
+        <item>새솔외과의원</item>
+        <item>서귀포열린병원</item>
+        <item>서울대화외과의원</item>
+        <item>서울화외과의원</item>
+        <item>성가롤로병원</item>
+        <item>센텀화외과의원</item>
+        <item>시원외과의원</item>
+        <item>연세대학교 원주세브란스기독병원</item>
+        <item>연세차오름의원</item>
+        <item>연세화사외과의원</item>
+        <item>연세화산외과의원</item>
+        <item>원광대학교병원</item>
+        <item>은혜병원</item>
+        <item>의료법인 길의료재단 길병원</item>
+        <item>의료법인 동강의료재단 동강병원</item>
+        <item>의료법인송하의료재단베스티안부천병원</item>
+        <item>의료법인한성재단포항세명기독병원</item>
+        <item>의료법인한전의료재단 한일병원</item>
+        <item>이노플러스성형외과의원</item>
+        <item>이화외과의원</item>
+        <item>인제대학교일산백병원</item>
+        <item>인하대학교의과대학부속병원</item>
+        <item>재단법인 베스티안재단 베스티안부산병원</item>
+        <item>재단법인베스티안재단베스티안병원</item>
+        <item>재단법인베스티안재단베스티안서울병원</item>
+        <item>전남대학교병원</item>
+        <item>전북대학교병원</item>
+        <item>정담외과의원</item>
+        <item>제일병원</item>
+        <item>제주특별자치도 서귀포의료원</item>
+        <item>제주한라병원</item>
+        <item>조선대학교병원</item>
+        <item>차의과학대학교부속구미차병원</item>
+        <item>찬솔외과의원</item>
+        <item>충남대학교병원</item>
+        <item>푸른병원</item>
+        <item>하나병원</item>
+        <item>한강수병원</item>
+        <item>한림대학교 한강성심병원</item>
+        <item>화사랑병원</item>
+        <item>화사의원</item>
+        <item>화사한외과의원</item>
+        <item>화인의원</item>
+        <item>화창한병원</item>
+    </string-array>
+
+
+    <string-array name="hospitalAddressList">
+        <item>경기도 의정부시 천보로 271 의정부성모병원 (금오동)</item>
+        <item>강원도 강릉시 사천면 방동길 38</item>
+        <item>강원도 춘천시 백령로 156 (효자동)</item>
+        <item>서울 구로구 경인로 427 (고척동)</item>
+        <item>대구광역시 중구 중앙대로 366 (덕산동)</item>
+        <item>광주광역시 북구 북문대로 182 (운암동)</item>
+        <item>충청남도 천안시 동남구 망향로 201 (안서동)</item>
+        <item>대전광역시 동구 동대전로 39-0 베스티안우송병원</item>
+        <item>경상북도 경주시 동대로 87 (석장동)</item>
+        <item>전라남도 목포시 영산로 483 (상동)</item>
+        <item>서울 송파구 송파대로 111 파크하비오 205동 A311호</item>
+        <item>경기도 고양시 일산동구 정발산로 38 장항동이스턴시티 307-1호, 308호 (장항동)</item>
+        <item>대전광역시 유성구 계룡로 120 4층 401호 (봉명동)</item>
+        <item>경기도 수원시 영통구 영통로 195 504-1, 506, 506-1, 507, 지하1층 108-1호 (망포동)</item>
+        <item>제주특별자치도 서귀포시 일주동로 8638 (동홍동)</item>
+        <item>경상남도 창원시 마산합포구 삼호로 45 4, 5층 (산호동)</item>
+        <item>경기도 의정부시 천보로 56 해동투타워 503호일부, 504, 505호 (민락동)</item>
+        <item>전라남도 순천시 순광로 221 (조례동)</item>
+        <item>부산광역시 해운대구 해운대로 365 201,701호 (우동)</item>
+        <item>광주광역시 광산구 장신로 62 8층 (장덕동)</item>
+        <item>강원도 원주시 일산로 20-0 (일산동)</item>
+        <item>서울 노원구 노해로 449 덕화빌딩 3층 연세차오름의원</item>
+        <item>대전광역시 유성구 계룡로 114 2층 210, 211호 (봉명동)</item>
+        <item>서울 송파구 송파대로 438 녹십초쿨샤 4층</item>
+        <item>전라북도 익산시 무왕로 895 (신동)</item>
+        <item>경상남도 창원시 마산합포구 해안대로 331-331 (남성동, 한백웨딩프라자)</item>
+        <item>인천광역시 남동구 남동대로774번길 21-0 의료법인길의료재단길병원</item>
+        <item>울산광역시 중구 태화로 239 (태화동)</item>
+        <item>경기도 부천시 심곡로10번길 68 (송내동, 베스티안병원)</item>
+        <item>경상북도 포항시 남구 포스코대로 351  (대도동)</item>
+        <item>서울특별시 도봉구 우이천로 308 (쌍문동)</item>
+        <item>전라북도 전주시 덕진구 백제대로 624 (금암동)</item>
+        <item>경상남도 양산시 동면 금오로 253 3층</item>
+        <item>경기도 고양시 일산서구 주화로 170 (대화동)</item>
+        <item>인천광역시 중구 인항로 27 (신흥동3가)</item>
+        <item>부산광역시 북구 화명대로 1 (화명동)</item>
+        <item>충청북도 청주시 흥덕구 오송읍 오송생명1로 191</item>
+        <item>서울특별시 성동구 왕십리로 382 (하왕십리동)</item>
+        <item>광주광역시 동구 제봉로 42 (학동)</item>
+        <item>전라북도 전주시 덕진구 건지로 20 (금암동)</item>
+        <item>인천광역시 남동구 정각로 10 파크에비뉴빌딩 5층 501 일부호 (구월동)</item>
+        <item>경상남도 진주시 진주대로 885 (강남동)</item>
+        <item>제주특별자치도 서귀포시 장수로 47 (동홍동)</item>
+        <item>제주 제주시 도령로 65 한라병원 (연동)</item>
+        <item>광주광역시 동구 필문대로 365 (학동)</item>
+        <item>경상북도 구미시 신시로10길 12 (형곡동)</item>
+        <item>인천 남동구 논고개로 85 골든프라자2 5층</item>
+        <item>대전광역시 중구 문화로 282 (대사동)</item>
+        <item>대구광역시 중구 태평로 102 (태평로3가)</item>
+        <item>부산광역시 사하구 다대로 311 (장림동)</item>
+        <item>서울특별시 영등포구 영등포로 83 한강수병원 (양평동1가)</item>
+        <item>서울특별시 영등포구 버드나루로7길 12 (영등포동7가, 한강성심병원)</item>
+        <item>경상남도 창원시 의창구 용동로83번안길 3 화사랑메디컬 3-5층 (사림동)</item>
+        <item>충청남도 천안시 서북구 충무로 125 4층 (쌍용동)</item>
+        <item>울산광역시 남구 삼산로 100 3, 5, 6, 7층 (달동)</item>
+        <item>부산광역시 해운대구 선수촌로 57-30 2층 (반여동)</item>
+        <item>부산광역시 금정구 중앙대로1685번길 12 지하2~6층 (부곡동)</item>
+    </string-array>
+
 </resources>
