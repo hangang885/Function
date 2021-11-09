@@ -32,6 +32,8 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
 
     private var mBinding: ActivityMapBinding? = null
     private val binding get() = mBinding!!
+
+    // 병원 리스트
     private lateinit var hospitalNameList: Array<String>
     lateinit var hospitalAddressList: Array<String>
     var hospitalLatitude: MutableList<Double> = mutableListOf<Double>()
@@ -47,19 +49,23 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
         var binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //String 파일에 있는값 불러오기
         hospitalNameList = resources.getStringArray(R.array.hospitalList)
         for (element in hospitalNameList) {
             hospitalName.add(element)
         }
 
+        //String 파일에 있는 값 불러오기
         hospitalAddressList = resources.getStringArray(R.array.hospitalAddressList)
         for (i in 0 until hospitalAddressList.size) {
             hospitalAddress.add(hospitalAddressList[i])
         }
+        //permission 확인
         requestPermission()
         var mapView: MapView = MapView(this)
         var mapViewContainer: ViewGroup = binding.mapView
 
+        //맵뷰 시작부터 트래킹 모드 온
         mapView.currentLocationTrackingMode =
             MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
 
@@ -69,52 +75,52 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
         mapView.setZoomLevel(2, true);
         // 줌 인
         mapView.zoomIn(true);
-
-
-        var address = "서울시 관악구 남부순환로 1811"
-//        var latitude = getLocation(address)[0].latitude
-//        var longitude = getLocation(address)[0].longitude
-
+        //맵뷰에 리스너장착
         mapView.setCurrentLocationEventListener(this)
         mapView.setMapViewEventListener(this)
 
         CoroutineScope(Dispatchers.IO).launch {
 
-
-            Log.d("han_Start", System.currentTimeMillis().toString())
+            // 주소-> 좌표 변환 메소드
+            Log.d("Han_Start", System.currentTimeMillis().toString())
             getAddress()
-            Log.d("han_End", System.currentTimeMillis().toString())
+            Log.d("Han_End", System.currentTimeMillis().toString())
 
 
             async {
                 CoroutineScope(Dispatchers.Default).launch {
+                    // 병원들 마커 찍기
                     AddMarker(mapView)
                 }
             }
 
             CoroutineScope(Dispatchers.Main).launch {
-            var locationManager: LocationManager =
-                applicationContext.getSystemService(LOCATION_SERVICE) as LocationManager
+                //현재 위치값 구하기
+                var locationManager: LocationManager =
+                    applicationContext.getSystemService(LOCATION_SERVICE) as LocationManager
 
-            var location: Location =
-                locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
-            var latitude = location.latitude
-            var longitude = location.longitude
+                var location: Location =
+                    locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
+                var latitude = location.latitude
+                var longitude = location.longitude
 
-            Log.d("latitude", latitude.toString())
-            Log.d("longitude", longitude.toString())
-
-            getDistance(latitude, longitude)
+                Log.d("Han_latitude", latitude.toString())
+                Log.d("Han_longitude", longitude.toString())
+                //구한값과 병원들 좌표 계산해서 가까운 병원 5개 찾는 메소드
+                getDistance(latitude, longitude)
             }
         }
+        // 지도 화면을 한단계 축소한다 ( 더 넓은 영역이 화면에 나타남) 확대 / 축소 레벨 값이 1 즈가됨
         mapView.zoomOut(true);
+        // 현 위치를 표시하는 아이콘(마커)를 화면에 표시할지 여부를 설정
         mapView.setShowCurrentLocationMarker(true)
+        // 기본 제공되는 현위치 아이콘 이미지를 사용
         mapView.setDefaultCurrentLocationMarker()
-        Log.d("showlocation", mapView.isShowingCurrentLocationMarker().toString())
+        Log.d("Han_showlocation", mapView.isShowingCurrentLocationMarker.toString())
         mapViewContainer.addView(mapView)
 
-
-        binding.panel.addPanelSlideListener( object : SlidingUpPanelLayout.PanelSlideListener{
+        // 슬라이딩패널 레이아웃 리스너
+        binding.panel.addPanelSlideListener(object : SlidingUpPanelLayout.PanelSlideListener {
 
             override fun onPanelSlide(panel: View?, slideOffset: Float) {
             }
@@ -126,20 +132,17 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
                 newState: SlidingUpPanelLayout.PanelState?
             ) {
 
-                  if(newState!!.name == "Collapsed"){
+                if (newState!!.name == "Collapsed") {
 
                     // 닫혔을때 처리하는 부분
 
 
-
-                }else if(newState!!.name == "Expanded"){
-
+                } else if (newState!!.name == "Expanded") {
 
 
                     // 열렸을때 처리하는 부분
 
                 }
-
 
 
             }
@@ -149,14 +152,14 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
     }
 
     fun getDistance(start_latitude: Double, start_longitude: Double) {
-        var closeLocation_latitude: Double = 0.0
-        var closeLocation_longitude: Double = 0.0
+        //현재위치 받을 로케이션 변수
         var locationA: Location = Location("point A")
         locationA.latitude = start_latitude
         locationA.longitude = start_longitude
         var distanceArray = mutableListOf<Int>()
         var distanceName = mutableListOf<String>()
         for (i in 0 until hospitalAddress.size) {
+            // 병원위치 받을 로케이션 변수
             var locationB: Location = Location("point B")
             locationB.latitude = hospitalLatitude[i]
             locationB.longitude = hospitalLongitude[i]
@@ -164,28 +167,31 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
             distanceArray.add(locationA.distanceTo(locationB).toInt())
 
         }
+        //리스트 오름차순으로 정렬
         distanceArray.sort()
         distanceName.sort()
         var text = ""
         for (k in 0..5) {
-            Log.d("distance", distanceArray[k].toString())
+            Log.d("Han_distance", distanceArray[k].toString())
+            // m 값 km 값으로 변환
             var distance1 = (distanceArray[k] / 1000)
             var distance2 = (distanceArray[k] % 1000)
             text += "${distanceName[k]} : $distance1.$distance2 km \n"
-            Log.d("distance", "$distance1.$distance2 km")
+            Log.d("Han_distance", "$distance1.$distance2 km")
         }
-        var textview= findViewById<TextView>(R.id.text1)
+        var textview = findViewById<TextView>(R.id.text1)
 
         textview.setText(text)
     }
 
-    fun getLocation(address: String): MutableList<Address> {
-        var addressList = Geocoder(applicationContext).getFromLocationName(address, 1)
-        return addressList
-    }
+//    fun getLocation(address: String): MutableList<Address> {
+//        var addressList = Geocoder(applicationContext).getFromLocationName(address, 1)
+//        return addressList
+//    }
 
 
     private fun requestPermission(): Boolean {
+        // 권한 확인
         if ((ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -239,7 +245,6 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
             this@MapActivity,
             this@MapActivity
         )
-//        p0!!.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord( mapPointGeo.latitude,  mapPointGeo.longitude), 1, true);
         Log.d(
             "Han_mapPointGeo.latitude.toString()",
             "::" + p1.mapPointGeoCoord.latitude.toString()
@@ -256,28 +261,32 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
 
     }
 
+    //단말의 방향 각도값을  통보받을 수 있다.
     override fun onCurrentLocationDeviceHeadingUpdate(p0: MapView?, p1: Float) {
     }
-
+    // 현위치 갱신 작업에 실패한 경우 호출
     override fun onCurrentLocationUpdateFailed(p0: MapView?) {
     }
-
+    // 현위치 트래킹 기능이 사용자에 의해 취소된 경우 호출된다
     override fun onCurrentLocationUpdateCancelled(p0: MapView?) {
     }
-
+    // 주소를 찾은 경우 호출된다
     override fun onReverseGeoCoderFoundAddress(p0: MapReverseGeoCoder?, p1: String?) {
-
     }
-
+    // Reverse Geo-Coding 서비스 호출에 실패한 경우 호출된다.
     override fun onReverseGeoCoderFailedToFindAddress(p0: MapReverseGeoCoder?) {
     }
 
     suspend fun AddMarker(mapView: MapView) {
         for (i in 0 until hospitalLatitude.size) {
             var marker = MapPOIItem()
+            // 마커 이름설정
             marker.itemName = hospitalName[i]
+            // 마커 위치 설정
             marker.mapPoint = mapPointWithGeoCoord(hospitalLatitude[i], hospitalLongitude[i])
+            // 마커 색상 설정
             marker.markerType = MapPOIItem.MarkerType.RedPin
+            // 마커 클릭 했을때 색상 설정
             marker.selectedMarkerType = MapPOIItem.MarkerType.YellowPin
             mapView.addPOIItem(marker)
         }
@@ -285,74 +294,80 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
     }
 
     suspend fun getAddress() {
+        // getFromLocationName == 주소 -> 좌표변환
+        // getFromLocation == 좌표 -> 주소 변환
         for (i in 0 until hospitalAddress.size) {
+            // 주소 좌표로 변환해서 위도 리스트에 ADD
             hospitalLatitude.add(
                 Geocoder(applicationContext).getFromLocationName(
                     hospitalAddress[i],
                     1
                 )[0].latitude
             )
+            // 주소 좌표로 변환해서 경도 리스트에 ADD
             hospitalLongitude.add(
                 Geocoder(applicationContext).getFromLocationName(
                     hospitalAddress[i],
                     1
                 )[0].longitude
             )
+
         }
 
     }
 
+    // MapView 가 사용가능 한 상태가 되었음을 알려준다.
     override fun onMapViewInitialized(p0: MapView?) {
         if (p0 != null) {
             Log.d(
-                "Seon_onMapViewInitialized_latitude",
+                "Han_onMapViewInitialized_latitude",
                 "::" + p0.mapCenterPoint.mapPointGeoCoord.latitude.toString()
             )
         }
         if (p0 != null) {
             Log.d(
-                "Seon_onMapViewInitialized_longitude",
+                "Han_onMapViewInitialized_longitude",
                 "::" + p0.mapCenterPoint.mapPointGeoCoord.longitude.toString()
             )
         }
     }
-
+    // 지도 중심좌표가 이동한경우 호출된다.
     override fun onMapViewCenterPointMoved(p0: MapView?, p1: MapPoint?) {
         Log.d(
-            "Seon_onMapViewCenterPointMoved_latitude",
+            "Han_onMapViewCenterPointMoved_latitude",
             "::" + p1!!.mapPointGeoCoord.latitude.toString()
         )
         Log.d(
-            "Seon_onMapViewCenterPointMoved_longitude",
+            "Han_onMapViewCenterPointMoved_longitude",
             "::" + p1!!.mapPointGeoCoord.longitude.toString()
         )
     }
-
+    // 지도 확대/축소 레벨이 변경된 경우 호출된다.
     override fun onMapViewZoomLevelChanged(p0: MapView?, p1: Int) {
     }
-
+    // 사용자가 지도 위를 터치한 경우 호출된다.
     override fun onMapViewSingleTapped(p0: MapView?, p1: MapPoint?) {
     }
-
+    // 사용자가 지도 위 한 지점을 더블 터치한 경우 호출된다.
     override fun onMapViewDoubleTapped(p0: MapView?, p1: MapPoint?) {
     }
-
+    // 사용자가 지도 위 한 지점을 길게 누른 경우 호출된다.
     override fun onMapViewLongPressed(p0: MapView?, p1: MapPoint?) {
     }
-
+    // 사용자가 지도 드래그를 시작한 경우 호출된다.
     override fun onMapViewDragStarted(p0: MapView?, p1: MapPoint?) {
     }
-
+    // 사용자가 지도 드래그를 끝낸 경우 호출된다.
     override fun onMapViewDragEnded(p0: MapView?, p1: MapPoint?) {
     }
-
+    // 지도 이동이 완료된 경우 호출된다.
     override fun onMapViewMoveFinished(p0: MapView?, p1: MapPoint?) {
         Log.d(
-            "Seon_onMapViewMoveFinished_latitude",
+            "Han_onMapViewMoveFinished_latitude",
             "::" + p1!!.mapPointGeoCoord.latitude.toString()
         )
         Log.d(
-            "Seon_onMapViewMoveFinished_longitude",
+            "Han_onMapViewMoveFinished_longitude",
             "::" + p1!!.mapPointGeoCoord.longitude.toString()
         )
     }

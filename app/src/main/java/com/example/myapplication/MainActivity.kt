@@ -43,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         binding.daumMap.setOnClickListener {
             onClick(binding.daumMap)
         }
+        binding.call.setOnClickListener {
+            onClick(binding.call)
+        }
     }
 
     private fun onClick(view: View) {
@@ -73,6 +76,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.daumMap->{
                 var intent = Intent(this, MapActivity::class.java)
+                startActivity(intent)
+            }
+            binding.call->{
+                var intent = Intent(this, CallActivity::class.java)
                 startActivity(intent)
             }
 

@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/Function/app/src/main/res/layout/activity_call.xml" value="0.3177083333333333" />
         <entry key="..\:/Users/HP/Function/app/src/main/res/layout/activity_camera_xactivity.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/HP/Function/app/src/main/res/layout/activity_coroutine.xml" value="0.2421875" />
-        <entry key="..\:/Users/HP/Function/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/HP/Function/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/HP/Function/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/HP/Function/app/src/main/res/layout/activity_map.xml" value="0.33" />
         <entry key="..\:/Users/HP/Function/app/src/main/res/xml/network_security_config.xml" value="0.19010416666666666" />

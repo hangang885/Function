@@ -88,7 +88,12 @@
             android:text="다음_Map_Api"
             android:layout_marginRight="30dp"
             ></Button>
-
+        <Button
+            android:id="@+id/call"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="전화 기능"
+            ></Button>
 
     </LinearLayout>
 

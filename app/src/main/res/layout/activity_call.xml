@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CallActivity">
+
+    <Button
+        android:id="@+id/opencall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화 열기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화 걸기"
+        app:layout_constraintTop_toBottomOf="@id/opencall"
+        />
+
+    <EditText
+        android:id="@+id/writeNumber"
+        android:gravity="center"
+        android:inputType="phone"
+        android:maxLength="14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/call"
+        android:hint="전화번호 입력"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,20 +16,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
         android:id="@+id/slide"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="500dp"
+        >
         <TextView
+            android:gravity="center"
             android:id="@+id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="23dp"
             android:text="hi hello"
+            sothree:layout_constraintTop_toTopOf="parent"
+            sothree:layout_constraintStart_toStartOf="parent"
             />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
