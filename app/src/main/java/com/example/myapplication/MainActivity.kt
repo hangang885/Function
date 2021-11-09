@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.view.View
 import com.example.myapplication.databinding.ActivityMainBinding
 
@@ -46,7 +47,13 @@ class MainActivity : AppCompatActivity() {
         binding.call.setOnClickListener {
             onClick(binding.call)
         }
+        binding.textTts.setOnClickListener {
+            onClick(binding.textTts)
+        }
+
+
     }
+
 
     private fun onClick(view: View) {
         when (view) {
@@ -80,6 +87,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.call->{
                 var intent = Intent(this, CallActivity::class.java)
+                startActivity(intent)
+            }
+            binding.textTts->{
+                var intent = Intent(this,  TTSActivity::class.java)
                 startActivity(intent)
             }
 

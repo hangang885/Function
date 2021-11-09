@@ -97,4 +97,19 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+        <Button
+            android:id="@+id/text_tts"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="글자 읽어주기"
+            ></Button>
+
+    </LinearLayout>
+
 </LinearLayout>
