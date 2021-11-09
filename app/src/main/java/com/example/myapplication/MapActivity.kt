@@ -8,10 +8,13 @@ import android.content.pm.PackageManager
 import android.location.*
 import android.os.Bundle;
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup;
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat
 import com.example.myapplication.databinding.ActivityMapBinding
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.coroutines.*
 import net.daum.android.map.coord.MapCoord
 import net.daum.mf.map.api.MapPOIItem
@@ -20,6 +23,7 @@ import net.daum.mf.map.api.MapPoint.*
 import net.daum.mf.map.api.MapPointBounds
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.MapReverseGeoCoder
+import org.jetbrains.anko.support.v4.slidingPaneLayout
 import kotlin.math.roundToLong
 
 
@@ -36,6 +40,7 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
     var hospitalAddress: MutableList<String> = mutableListOf<String>()
 
 
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -55,6 +60,8 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
         var mapView: MapView = MapView(this)
         var mapViewContainer: ViewGroup = binding.mapView
 
+        mapView.currentLocationTrackingMode =
+            MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
 
         // 중심점 변경
 //        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.53737528, 127.00557633), true);
@@ -71,7 +78,7 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
         mapView.setCurrentLocationEventListener(this)
         mapView.setMapViewEventListener(this)
 
-        CoroutineScope(Dispatchers.Default).launch {
+        CoroutineScope(Dispatchers.IO).launch {
 
 
             Log.d("han_Start", System.currentTimeMillis().toString())
@@ -80,54 +87,64 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
 
 
             async {
-                CoroutineScope(Dispatchers.Main).launch {
+                CoroutineScope(Dispatchers.Default).launch {
                     AddMarker(mapView)
                 }
             }
 
+            CoroutineScope(Dispatchers.Main).launch {
             var locationManager: LocationManager =
                 applicationContext.getSystemService(LOCATION_SERVICE) as LocationManager
-            if (ActivityCompat.checkSelfPermission(
-                    applicationContext,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                    applicationContext,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                var location: Location =
 
-                    locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
-                var latitude = location.latitude
-                var longitude = location.longitude
+            var location: Location =
+                locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
+            var latitude = location.latitude
+            var longitude = location.longitude
 
-                Log.d("latitude", latitude.toString())
-                Log.d("longitude", longitude.toString())
+            Log.d("latitude", latitude.toString())
+            Log.d("longitude", longitude.toString())
 
-                getDistance(latitude, longitude)
+            getDistance(latitude, longitude)
+            }
+        }
+        mapView.zoomOut(true);
+        mapView.setShowCurrentLocationMarker(true)
+        mapView.setDefaultCurrentLocationMarker()
+        Log.d("showlocation", mapView.isShowingCurrentLocationMarker().toString())
+        mapViewContainer.addView(mapView)
+
+
+        binding.panel.addPanelSlideListener( object : SlidingUpPanelLayout.PanelSlideListener{
+
+            override fun onPanelSlide(panel: View?, slideOffset: Float) {
             }
 
 
-        }
+            override fun onPanelStateChanged(
+                panel: View?,
+                previousState: SlidingUpPanelLayout.PanelState?,
+                newState: SlidingUpPanelLayout.PanelState?
+            ) {
+
+                  if(newState!!.name == "Collapsed"){
+
+                    // 닫혔을때 처리하는 부분
 
 
 
-
-        mapView.zoomOut(true);
-
-
-        mapView.setShowCurrentLocationMarker(true)
-        mapView.setDefaultCurrentLocationMarker()
-
-        Log.d("showlocation", mapView.isShowingCurrentLocationMarker().toString())
-
-// 줌 아웃
+                }else if(newState!!.name == "Expanded"){
 
 
-        mapViewContainer.addView(mapView)
-        mapView.currentLocationTrackingMode =
-            MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
 
+                    // 열렸을때 처리하는 부분
+
+                }
+
+
+
+            }
+
+        })
 
     }
 
@@ -138,20 +155,28 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
         locationA.latitude = start_latitude
         locationA.longitude = start_longitude
         var distanceArray = mutableListOf<Int>()
+        var distanceName = mutableListOf<String>()
         for (i in 0 until hospitalAddress.size) {
             var locationB: Location = Location("point B")
             locationB.latitude = hospitalLatitude[i]
             locationB.longitude = hospitalLongitude[i]
+            distanceName.add(hospitalName[i])
             distanceArray.add(locationA.distanceTo(locationB).toInt())
 
         }
         distanceArray.sort()
+        distanceName.sort()
+        var text = ""
         for (k in 0..5) {
             Log.d("distance", distanceArray[k].toString())
             var distance1 = (distanceArray[k] / 1000)
             var distance2 = (distanceArray[k] % 1000)
+            text += "${distanceName[k]} : $distance1.$distance2 km \n"
             Log.d("distance", "$distance1.$distance2 km")
         }
+        var textview= findViewById<TextView>(R.id.text1)
+
+        textview.setText(text)
     }
 
     fun getLocation(address: String): MutableList<Address> {
@@ -217,21 +242,17 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
 //        p0!!.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord( mapPointGeo.latitude,  mapPointGeo.longitude), 1, true);
         Log.d(
             "Han_mapPointGeo.latitude.toString()",
-            "::" + p0.mapCenterPoint.mapPointGeoCoord.latitude.toString()
+            "::" + p1.mapPointGeoCoord.latitude.toString()
         )
         Log.d(
             "Han_mapPointGeo.latitude.toString()",
-            "::" + p0.mapCenterPoint.mapPointGeoCoord.latitude.toString()
+            "::" + p1.mapPointGeoCoord.latitude.toString()
         )
         Log.d(
             "Han_mReverseGeoCoder.startFindingAddress()",
             "::" + mReverseGeoCoder.startFindingAddress().toString()
         )
 
-
-        //Reverse Geo-coding(Asynchronous) 서비스를 요청한다.
-        // 주소 정보를 요청하는 함수다.
-//                mReverseGeoCoder.startFindingAddress()
 
     }
 
