@@ -271,15 +271,19 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
     //단말의 방향 각도값을  통보받을 수 있다.
     override fun onCurrentLocationDeviceHeadingUpdate(p0: MapView?, p1: Float) {
     }
+
     // 현위치 갱신 작업에 실패한 경우 호출
     override fun onCurrentLocationUpdateFailed(p0: MapView?) {
     }
+
     // 현위치 트래킹 기능이 사용자에 의해 취소된 경우 호출된다
     override fun onCurrentLocationUpdateCancelled(p0: MapView?) {
     }
+
     // 주소를 찾은 경우 호출된다
     override fun onReverseGeoCoderFoundAddress(p0: MapReverseGeoCoder?, p1: String?) {
     }
+
     // Reverse Geo-Coding 서비스 호출에 실패한 경우 호출된다.
     override fun onReverseGeoCoderFailedToFindAddress(p0: MapReverseGeoCoder?) {
     }
@@ -337,7 +341,6 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
         }
 
 
-
     }
 
     // MapView 가 사용가능 한 상태가 되었음을 알려준다.
@@ -355,6 +358,7 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
             )
         }
     }
+
     // 지도 중심좌표가 이동한경우 호출된다.
     override fun onMapViewCenterPointMoved(p0: MapView?, p1: MapPoint?) {
         Log.d(
@@ -366,24 +370,31 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
             "::" + p1!!.mapPointGeoCoord.longitude.toString()
         )
     }
+
     // 지도 확대/축소 레벨이 변경된 경우 호출된다.
     override fun onMapViewZoomLevelChanged(p0: MapView?, p1: Int) {
     }
+
     // 사용자가 지도 위를 터치한 경우 호출된다.
     override fun onMapViewSingleTapped(p0: MapView?, p1: MapPoint?) {
     }
+
     // 사용자가 지도 위 한 지점을 더블 터치한 경우 호출된다.
     override fun onMapViewDoubleTapped(p0: MapView?, p1: MapPoint?) {
     }
+
     // 사용자가 지도 위 한 지점을 길게 누른 경우 호출된다.
     override fun onMapViewLongPressed(p0: MapView?, p1: MapPoint?) {
     }
+
     // 사용자가 지도 드래그를 시작한 경우 호출된다.
     override fun onMapViewDragStarted(p0: MapView?, p1: MapPoint?) {
     }
+
     // 사용자가 지도 드래그를 끝낸 경우 호출된다.
     override fun onMapViewDragEnded(p0: MapView?, p1: MapPoint?) {
     }
+
     // 지도 이동이 완료된 경우 호출된다.
     override fun onMapViewMoveFinished(p0: MapView?, p1: MapPoint?) {
         Log.d(
