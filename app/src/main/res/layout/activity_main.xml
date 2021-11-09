@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="파이어베이스"
             android:layout_marginRight="30dp"
-            ></Button>
+            />
 
         <Button
             android:id="@+id/customGallery"
@@ -29,7 +29,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="커스텀갤러리"
-            ></Button>
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,14 +43,14 @@
             android:layout_height="wrap_content"
             android:text="카메라1"
             android:layout_marginRight="30dp"
-            ></Button>
+            />
 
         <Button
             android:id="@+id/camerax"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="카메라x"
-            ></Button>
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -65,13 +65,13 @@
             android:layout_height="wrap_content"
             android:text="코루틴"
             android:layout_marginRight="30dp"
-            ></Button>
+            />
         <Button
             android:id="@+id/room"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="룸"
-            ></Button>
+           />
 
     </LinearLayout>
 
@@ -87,13 +87,13 @@
             android:layout_height="wrap_content"
             android:text="다음_Map_Api"
             android:layout_marginRight="30dp"
-            ></Button>
+           />
         <Button
             android:id="@+id/call"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="전화 기능"
-            ></Button>
+           />
 
     </LinearLayout>
 
@@ -107,9 +107,15 @@
             android:id="@+id/text_tts"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
             android:text="글자 읽어주기"
-            ></Button>
-
+            />
+        <Button
+            android:id="@+id/video"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="비디오"
+            />
     </LinearLayout>
 
 </LinearLayout>

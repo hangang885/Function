@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
         binding.textTts.setOnClickListener {
             onClick(binding.textTts)
         }
+        binding.video.setOnClickListener {
+            onClick(binding.video)
+        }
 
 
     }
@@ -91,6 +94,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.textTts->{
                 var intent = Intent(this,  TTSActivity::class.java)
+                startActivity(intent)
+            }
+            binding.video->{
+                var intent = Intent(this,  VideoActivity::class.java)
                 startActivity(intent)
             }
 
