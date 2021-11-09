@@ -51,15 +51,22 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
 
         //String 파일에 있는값 불러오기
         hospitalNameList = resources.getStringArray(R.array.hospitalList)
-        for (element in hospitalNameList) {
-            hospitalName.add(element)
+//        for (element in hospitalNameList) {
+//            hospitalName.add(element)
+//        }
+        hospitalNameList.forEach { i ->
+            hospitalName.add(i)
         }
 
         //String 파일에 있는 값 불러오기
         hospitalAddressList = resources.getStringArray(R.array.hospitalAddressList)
-        for (i in 0 until hospitalAddressList.size) {
-            hospitalAddress.add(hospitalAddressList[i])
+//        for (i in 0 until hospitalAddressList.size) {
+//            hospitalAddress.add(hospitalAddressList[i])
+//        }
+        hospitalAddressList.forEach { i ->
+            hospitalAddress.add(i)
         }
+
         //permission 확인
         requestPermission()
         var mapView: MapView = MapView(this)
@@ -296,23 +303,40 @@ class MapActivity : AppCompatActivity(), MapReverseGeoCoder.ReverseGeoCodingResu
     suspend fun getAddress() {
         // getFromLocationName == 주소 -> 좌표변환
         // getFromLocation == 좌표 -> 주소 변환
-        for (i in 0 until hospitalAddress.size) {
-            // 주소 좌표로 변환해서 위도 리스트에 ADD
+//        for (i in 0 until hospitalAddress.size) {
+//            // 주소 좌표로 변환해서 위도 리스트에 ADD
+//            hospitalLatitude.add(
+//                Geocoder(applicationContext).getFromLocationName(
+//                    hospitalAddress[i],
+//                    1
+//                )[0].latitude
+//            )
+//            // 주소 좌표로 변환해서 경도 리스트에 ADD
+//            hospitalLongitude.add(
+//                Geocoder(applicationContext).getFromLocationName(
+//                    hospitalAddress[i],
+//                    1
+//                )[0].longitude
+//            )
+//        }
+
+        hospitalAddress.forEach { i ->
             hospitalLatitude.add(
                 Geocoder(applicationContext).getFromLocationName(
-                    hospitalAddress[i],
+                    i,
                     1
                 )[0].latitude
             )
             // 주소 좌표로 변환해서 경도 리스트에 ADD
             hospitalLongitude.add(
                 Geocoder(applicationContext).getFromLocationName(
-                    hospitalAddress[i],
+                    i,
                     1
                 )[0].longitude
             )
-
         }
+
+
 
     }
 
