@@ -43,10 +43,10 @@ class NotificationActivity : AppCompatActivity() {
             arrayOf(intent),PendingIntent.FLAG_UPDATE_CURRENT)
 
         builder.setContentIntent(pendingIntent)
+        builder.setVibrate(longArrayOf(0,2000, 1000, 3000))
 
 
-
-        var notificationManager:NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            var notificationManager:NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             notificationManager.createNotificationChannel( NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT))
         }
