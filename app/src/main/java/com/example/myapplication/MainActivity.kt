@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
+import com.example.myapplication.Mvvm.MvvmExampleActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -61,6 +62,9 @@ class MainActivity : AppCompatActivity() {
         binding.notification.setOnClickListener {
             onClick(binding.notification)
         }
+        binding.mvvmExam.setOnClickListener {
+            onClick(binding.mvvmExam)
+        }
 
 
     }
@@ -110,6 +114,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.notification -> {
                 var intent = Intent(this, NotificationActivity::class.java)
+                startActivity(intent)
+            }
+            binding.mvvmExam -> {
+                var intent = Intent(this, MvvmExampleActivity::class.java)
                 startActivity(intent)
             }
 

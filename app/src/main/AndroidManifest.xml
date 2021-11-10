@@ -35,6 +35,12 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Mvvm.AddActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Mvvm.MvvmExampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".SignupActivity"
             android:exported="true" />
         <activity
