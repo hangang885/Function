@@ -20,8 +20,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         val db = LoginDatabase.getInstance(applicationContext)
 
+        var keyHash = com.kakao.sdk.common.util.Utility.getKeyHash(this)
         if(AutoLogin.getUserId(applicationContext).isNotEmpty()){
-                var intent = Intent(applicationContext,MainActivity::class.java)
+            var intent = Intent(applicationContext,MainActivity::class.java)
             startActivity(intent)
         }
 

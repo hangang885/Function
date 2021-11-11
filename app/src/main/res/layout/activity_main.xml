@@ -139,5 +139,26 @@
             />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+        <Button
+            android:id="@+id/kotlin"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:text="코틀린 문법"
+            />
+        <Button
+            android:id="@+id/kakao_login"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="카카오 로그인"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
 import android.view.View
 import com.example.myapplication.Mvvm.MvvmExampleActivity
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -65,7 +64,13 @@ class MainActivity : AppCompatActivity() {
         binding.mvvmExam.setOnClickListener {
             onClick(binding.mvvmExam)
         }
+        binding.kotlin.setOnClickListener {
+            onClick(binding.kotlin)
+        }
 
+        binding.kakaoLogin.setOnClickListener {
+            onClick(binding.kakaoLogin)
+        }
 
     }
 
@@ -118,6 +123,14 @@ class MainActivity : AppCompatActivity() {
             }
             binding.mvvmExam -> {
                 var intent = Intent(this, MvvmExampleActivity::class.java)
+                startActivity(intent)
+            }
+            binding.kotlin -> {
+                var intent = Intent(this, KotlinActivity::class.java)
+                startActivity(intent)
+            }
+            binding.kakaoLogin -> {
+                var intent = Intent(this, KaKaoLoginActivity::class.java)
                 startActivity(intent)
             }
 
