@@ -71,6 +71,13 @@ class MainActivity : AppCompatActivity() {
         binding.kakaoLogin.setOnClickListener {
             onClick(binding.kakaoLogin)
         }
+        binding.node.setOnClickListener {
+            onClick(binding.node)
+        }
+        binding.webview.setOnClickListener {
+            onClick(binding.webview)
+        }
+
 
     }
 
@@ -133,7 +140,14 @@ class MainActivity : AppCompatActivity() {
                 var intent = Intent(this, KaKaoLoginActivity::class.java)
                 startActivity(intent)
             }
-
+            binding.node ->{
+                var intent = Intent(this, NodeActivity::class.java)
+                startActivity(intent)
+            }
+            binding.webview ->{
+                var intent = Intent(this, WebviewActivity::class.java)
+                startActivity(intent)
+            }
 
         }
     }

@@ -6,15 +6,21 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.databinding.ActivitySecondBinding
 import com.kakao.sdk.user.UserApiClient
 
 class SecondActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivitySecondBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second)
-        val kakao_logout_button = findViewById<Button>(R.id.kakao_logout_button) // 로그인 버튼
 
-        kakao_logout_button.setOnClickListener {
+        binding = ActivitySecondBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
+
+        binding.kakaoLogoutButton.setOnClickListener { // 로그인 버튼 클릭
             UserApiClient.instance.logout { error ->
                 if (error != null) {
                     Toast.makeText(this, "로그아웃 실패 $error", Toast.LENGTH_SHORT).show()
@@ -27,9 +33,8 @@ class SecondActivity : AppCompatActivity() {
             }
         }
 
-        val kakao_unlink_button = findViewById<Button>(R.id.kakao_unlink_button) // 로그인 버튼
 
-        kakao_unlink_button.setOnClickListener {
+        binding.kakaoUnlinkButton.setOnClickListener { // 회원탈퇴 버튼 클릭
             UserApiClient.instance.unlink { error ->
                 if (error != null) {
                     Toast.makeText(this, "회원 탈퇴 실패 $error", Toast.LENGTH_SHORT).show()

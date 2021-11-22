@@ -40,7 +40,7 @@ class KaKaoLoginActivity : AppCompatActivity() {
         // 로그인 공통 callback 구성
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
-                Log.d("Kakako_error2",error.toString())
+                Log.d("Kakao_error2",error.toString())
                 when {
                     error.toString() == AuthErrorCause.AccessDenied.toString() -> {
                         Toast.makeText(this, "접근이 거부 됨(동의 취소)", Toast.LENGTH_SHORT).show()
