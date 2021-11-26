@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
 
-    var url = "https://sleepy-lowlands-44732.herokuapp.com"
+    var url = "http://localhost:8012"
 
     private var retrofit : Retrofit? = null
     private var client = OkHttpClient()

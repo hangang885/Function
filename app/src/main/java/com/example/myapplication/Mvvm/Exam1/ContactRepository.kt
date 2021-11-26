@@ -1,9 +1,8 @@
-package com.example.myapplication.Mvvm
+package com.example.myapplication.Mvvm.Exam1
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import java.lang.Exception
-import kotlin.concurrent.thread
 
 class ContactRepository(application: Application) {
 

@@ -6,7 +6,10 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.myapplication.Mvvm.MvvmExampleActivity
+import com.example.myapplication.Facebook.FacebookLoginActivity
+import com.example.myapplication.LiveData.LiveDataExamPageActivity
+import com.example.myapplication.Mvvm.Exam1.MvvmExampleActivity
+import com.example.myapplication.Naver.NaverLoginActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -77,6 +80,18 @@ class MainActivity : AppCompatActivity() {
         binding.webview.setOnClickListener {
             onClick(binding.webview)
         }
+        binding.naverMap.setOnClickListener {
+            onClick(binding.naverMap)
+        }
+        binding.LiveData.setOnClickListener {
+            onClick(binding.LiveData)
+        }
+        binding.facebookLogin.setOnClickListener {
+            onClick(binding.facebookLogin)
+        }
+        binding.naverLogin.setOnClickListener {
+            onClick(binding.naverLogin)
+        }
 
 
     }
@@ -146,6 +161,22 @@ class MainActivity : AppCompatActivity() {
             }
             binding.webview ->{
                 var intent = Intent(this, WebviewActivity::class.java)
+                startActivity(intent)
+            }
+            binding.naverMap ->{
+                var intent = Intent(this, NaverMapActivity::class.java)
+                startActivity(intent)
+            }
+            binding.LiveData ->{
+                var intent = Intent(this, LiveDataExamPageActivity::class.java)
+                startActivity(intent)
+            }
+            binding.facebookLogin ->{
+                var intent = Intent(this, FacebookLoginActivity::class.java)
+                startActivity(intent)
+            }
+            binding.naverLogin ->{
+                var intent = Intent(this, NaverLoginActivity::class.java)
                 startActivity(intent)
             }
 

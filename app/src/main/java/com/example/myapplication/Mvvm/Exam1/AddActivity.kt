@@ -1,10 +1,9 @@
-package com.example.myapplication.Mvvm
+package com.example.myapplication.Mvvm.Exam1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityAddBinding
 
 class AddActivity : AppCompatActivity() {
@@ -20,7 +19,9 @@ class AddActivity : AppCompatActivity() {
         contactViewModel = ViewModelProviders.of(this).get(ContactViewModel::class.java)
 
         // intent null check & get extras
-        if (intent != null && intent.hasExtra(EXTRA_CONTACT_NAME) && intent.hasExtra(EXTRA_CONTACT_NUMBER)
+        if (intent != null && intent.hasExtra(EXTRA_CONTACT_NAME) && intent.hasExtra(
+                EXTRA_CONTACT_NUMBER
+            )
             && intent.hasExtra(EXTRA_CONTACT_ID)) {
             binding.addEdittextName.setText(intent.getStringExtra(EXTRA_CONTACT_NAME))
             binding.addEdittextNumber.setText(intent.getStringExtra(EXTRA_CONTACT_NUMBER))

@@ -35,7 +35,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WebviewActivity"></activity>
+        <activity android:name=".Naver.NaverLoginActivity"></activity>
+        <activity android:name=".Facebook.FacebookLoginActivity" />
+        <activity android:name=".LiveData.Exam1.Live1MainActivity" />
+        <activity android:name=".LiveData.LiveDataExamPageActivity" />
+        <activity android:name=".LiveData.QuizDetailActivity" />
+        <activity android:name=".NaverMapActivity" />
+        <activity android:name=".WebviewActivity" />
         <activity
             android:name=".NodeActivity"
             android:exported="true" />
@@ -49,10 +55,10 @@
             android:name=".KotlinActivity"
             android:exported="true" />
         <activity
-            android:name=".Mvvm.AddActivity"
+            android:name=".Mvvm.Exam1.AddActivity"
             android:exported="true" />
         <activity
-            android:name=".Mvvm.MvvmExampleActivity"
+            android:name=".Mvvm.Exam1.MvvmExampleActivity"
             android:exported="true" />
         <activity
             android:name=".SignupActivity"
@@ -161,6 +167,9 @@
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="h31uaiipuf" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
     </application>
 
 </manifest>

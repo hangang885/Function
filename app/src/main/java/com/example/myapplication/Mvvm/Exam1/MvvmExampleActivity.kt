@@ -1,4 +1,4 @@
-package com.example.myapplication.Mvvm
+package com.example.myapplication.Mvvm.Exam1
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplication.R
-import com.example.myapplication.databinding.ActivityMapBinding
 import com.example.myapplication.databinding.ActivityMvvmExampleBinding
 
 class MvvmExampleActivity : AppCompatActivity() {

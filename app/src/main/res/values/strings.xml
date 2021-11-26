@@ -32,6 +32,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="kakao_app_key">726e909b6cc68748ab227b96ce7fce72</string>
+    <string name="facebook_app_id">1062904224545339</string>
+    <string name="fb_login_protocol_scheme">fb1062904224545339</string>
 
 
     <string-array name="hospitalList">

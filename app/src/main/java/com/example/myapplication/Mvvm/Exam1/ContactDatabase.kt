@@ -1,4 +1,4 @@
-package com.example.myapplication.Mvvm
+package com.example.myapplication.Mvvm.Exam1
 
 import android.content.Context
 import androidx.room.Database
