@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.myapplication.Facebook.FacebookLoginActivity
+import com.example.myapplication.Google.GoogleLoginActivity
 import com.example.myapplication.LiveData.LiveDataExamPageActivity
 import com.example.myapplication.Mvvm.Exam1.MvvmExampleActivity
 import com.example.myapplication.Naver.NaverLoginActivity
@@ -91,6 +92,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.naverLogin.setOnClickListener {
             onClick(binding.naverLogin)
+        }
+        binding.googleLogin.setOnClickListener {
+            onClick(binding.googleLogin)
         }
 
 
@@ -177,6 +181,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.naverLogin ->{
                 var intent = Intent(this, NaverLoginActivity::class.java)
+                startActivity(intent)
+            }
+            binding.googleLogin ->{
+                var intent = Intent(this, GoogleLoginActivity::class.java)
                 startActivity(intent)
             }
 

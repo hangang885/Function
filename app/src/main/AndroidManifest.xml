@@ -35,7 +35,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Naver.NaverLoginActivity"></activity>
+        <activity android:name=".Google.GoogleLoginActivity" />
+        <activity android:name=".Naver.NaverLoginActivity" />
         <activity android:name=".Facebook.FacebookLoginActivity" />
         <activity android:name=".LiveData.Exam1.Live1MainActivity" />
         <activity android:name=".LiveData.LiveDataExamPageActivity" />
