@@ -33,10 +33,19 @@
         <entry key="..\:/Users/HP/study/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/HP/study/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/HP/study/app/src/main/res/xml/file_paths.xml" value="0.20625" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_biometric.xml" value="0.3484375" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_camera_xactivity.xml" value="0.17477203647416414" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_custom_gallery.xml" value="0.3484375" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_live1_main.xml" value="0.19021739130434784" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_login.xml" value="0.23097826086956522" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_main.xml" value="0.17477203647416414" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_mvvm_exam2.xml" value="0.17477203647416414" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_mvvm_example.xml" value="0.3484375" />
+        <entry key="..\:/fine/Function/app/src/main/res/layout/activity_splash.xml" value="0.17477203647416414" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

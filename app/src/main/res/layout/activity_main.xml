@@ -236,6 +236,12 @@
             android:layout_marginRight="30dp"
             android:text="구글 로그인"
             />
+        <Button
+            android:id="@+id/biometric"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="생체인증"
+            />
 
     </LinearLayout>
 </LinearLayout>

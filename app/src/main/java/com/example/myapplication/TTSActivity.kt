@@ -27,9 +27,6 @@ class TTSActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         if(binding.ttxEditext1.text.isNullOrEmpty()){
                 myTTS.speak("글자를 작성해주세요",TextToSpeech.QUEUE_FLUSH,null)
         }
-        else{
-
-        }
 
     }
 

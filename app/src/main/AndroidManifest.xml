@@ -25,6 +25,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 전화 걸기 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- 생체인증 -->
+
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
@@ -43,6 +45,7 @@
         <activity android:name=".LiveData.QuizDetailActivity" />
         <activity android:name=".NaverMapActivity" />
         <activity android:name=".WebviewActivity" />
+        <activity android:name=".BiometricActivity" />
         <activity
             android:name=".NodeActivity"
             android:exported="true" />

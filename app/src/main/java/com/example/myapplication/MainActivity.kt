@@ -93,8 +93,8 @@ class MainActivity : AppCompatActivity() {
         binding.naverLogin.setOnClickListener {
             onClick(binding.naverLogin)
         }
-        binding.googleLogin.setOnClickListener {
-            onClick(binding.googleLogin)
+        binding.biometric.setOnClickListener {
+            onClick(binding.biometric)
         }
 
 
@@ -159,32 +159,36 @@ class MainActivity : AppCompatActivity() {
                 var intent = Intent(this, KaKaoLoginActivity::class.java)
                 startActivity(intent)
             }
-            binding.node ->{
+            binding.node -> {
                 var intent = Intent(this, NodeActivity::class.java)
                 startActivity(intent)
             }
-            binding.webview ->{
+            binding.webview -> {
                 var intent = Intent(this, WebviewActivity::class.java)
                 startActivity(intent)
             }
-            binding.naverMap ->{
+            binding.naverMap -> {
                 var intent = Intent(this, NaverMapActivity::class.java)
                 startActivity(intent)
             }
-            binding.LiveData ->{
+            binding.LiveData -> {
                 var intent = Intent(this, LiveDataExamPageActivity::class.java)
                 startActivity(intent)
             }
-            binding.facebookLogin ->{
+            binding.facebookLogin -> {
                 var intent = Intent(this, FacebookLoginActivity::class.java)
                 startActivity(intent)
             }
-            binding.naverLogin ->{
+            binding.naverLogin -> {
                 var intent = Intent(this, NaverLoginActivity::class.java)
                 startActivity(intent)
             }
-            binding.googleLogin ->{
+            binding.googleLogin -> {
                 var intent = Intent(this, GoogleLoginActivity::class.java)
+                startActivity(intent)
+            }
+            binding.biometric -> {
+                var intent = Intent(this, BiometricActivity::class.java)
                 startActivity(intent)
             }
 
