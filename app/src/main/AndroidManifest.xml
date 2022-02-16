@@ -24,8 +24,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 전화 걸기 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
-    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- 생체인증 -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
     <application
         android:name=".GlobalApplication"
@@ -37,15 +36,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Google.GoogleLoginActivity" />
-        <activity android:name=".Naver.NaverLoginActivity" />
-        <activity android:name=".Facebook.FacebookLoginActivity" />
-        <activity android:name=".LiveData.Exam1.Live1MainActivity" />
-        <activity android:name=".LiveData.LiveDataExamPageActivity" />
-        <activity android:name=".LiveData.QuizDetailActivity" />
-        <activity android:name=".NaverMapActivity" />
-        <activity android:name=".WebviewActivity" />
-        <activity android:name=".BiometricActivity" />
+        <activity
+            android:name=".CalendarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ConstraintLayoutActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Google.GoogleLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Naver.NaverLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Facebook.FacebookLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LiveData.Exam1.Live1MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LiveData.LiveDataExamPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LiveData.QuizDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NaverMapActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WebviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BiometricActivity"
+            android:exported="true" />
         <activity
             android:name=".NodeActivity"
             android:exported="true" />
@@ -158,18 +181,23 @@
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
+            android:exported="false"
             android:value="@string/kakao_app_key" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
+            android:exported="false"
             android:resource="@drawable/ic_launcher_foreground" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
+            android:exported="false"
             android:resource="@color/colorAccent" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:exported="false"
             android:value="@string/default_notification_channel_id" />
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
+            android:exported="false"
             android:value="h31uaiipuf" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

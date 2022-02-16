@@ -52,6 +52,7 @@ public class MyFirebaseMessagingService : FirebaseMessagingService() {
         super.onNewToken(p0)
 
         /** 변경된 토큰 가져오기 및 확인하기 */
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(TAG, "Fetching FCM registration token failed", task.exception)

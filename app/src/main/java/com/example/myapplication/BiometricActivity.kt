@@ -55,7 +55,7 @@ class BiometricActivity : AppCompatActivity() {
         promptInfo = PromptInfo.Builder()
             .setTitle("지문 인증")
             .setNegativeButtonText("취소")
-            .setDeviceCredentialAllowed(false)
+//            .setDeviceCredentialAllowed(false)
             .build()
 
         biometricPrompt.authenticate(promptInfo)

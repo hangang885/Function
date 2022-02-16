@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,7 +38,7 @@ class FireBaseActivity : AppCompatActivity() {
 
             // Log and toast
             val msg = getString(R.string.msg_token_fmt, token)
-            Log.d(TAG, msg)
+            Log.d("han_FireBaseToken_Check", msg)
             Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
         })
         }

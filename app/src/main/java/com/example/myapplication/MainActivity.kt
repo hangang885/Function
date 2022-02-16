@@ -96,6 +96,9 @@ class MainActivity : AppCompatActivity() {
         binding.biometric.setOnClickListener {
             onClick(binding.biometric)
         }
+        binding.calendar.setOnClickListener {
+            onClick(binding.calendar)
+        }
 
 
     }
@@ -189,6 +192,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.biometric -> {
                 var intent = Intent(this, BiometricActivity::class.java)
+                startActivity(intent)
+            }
+            binding.calendar -> {
+                var intent = Intent(this, CalendarActivity::class.java)
                 startActivity(intent)
             }
 
