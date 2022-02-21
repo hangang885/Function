@@ -99,6 +99,9 @@ class MainActivity : AppCompatActivity() {
         binding.calendar.setOnClickListener {
             onClick(binding.calendar)
         }
+        binding.customCalendar.setOnClickListener {
+            onClick(binding.customCalendar)
+        }
 
 
     }
@@ -196,6 +199,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.calendar -> {
                 var intent = Intent(this, CalendarActivity::class.java)
+                startActivity(intent)
+            }
+            binding.customCalendar -> {
+                var intent = Intent(this, CustomCalendarActivity::class.java)
                 startActivity(intent)
             }
 

@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.example.myapplication.databinding.ActivityCalendarBinding
 
 class CalendarActivity : AppCompatActivity() {
@@ -23,11 +24,13 @@ class CalendarActivity : AppCompatActivity() {
 
 
     }
-    private fun calendarSetting(){
+
+    private fun calendarSetting() {
         binding.calendar.apply {
             dateTextAppearance = R.style.TextAppearance_AppCompat_Large
             weekDayTextAppearance = R.style.TextAppearance_AppCompat_Medium
         }
+
 
     }
 
@@ -35,7 +38,16 @@ class CalendarActivity : AppCompatActivity() {
         binding.calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
             Log.d("han_Calendar", "$year $month $dayOfMonth")
             date = "$year/$month/$dayOfMonth"
-            binding.edit.setText(prefs.getString(date, ""))
+            var memo = prefs.getString(date, "")
+            if(memo.isNullOrEmpty()){
+                binding.save.text = "저장"
+                binding.delete.visibility = View.GONE
+            }
+            else{
+                binding.save.text = "수정"
+                binding.delete.visibility = View.VISIBLE
+            }
+            binding.edit.setText(memo)
         }
         binding.save.setOnClickListener {
             var memo = binding.edit.text.toString()

@@ -253,9 +253,15 @@
         <Button
             android:id="@+id/calendar"
             android:layout_width="150dp"
+            android:layout_marginRight="30dp"
             android:layout_height="wrap_content"
             android:text="달력"
             />
-
+        <Button
+            android:id="@+id/customCalendar"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="커스텀 달력"
+            />
     </LinearLayout>
 </LinearLayout>
