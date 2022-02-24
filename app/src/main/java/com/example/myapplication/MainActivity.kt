@@ -110,99 +110,99 @@ class MainActivity : AppCompatActivity() {
     private fun onClick(view: View) {
         when (view) {
             binding.firebaseButton -> {
-                var intent = Intent(this, FireBaseActivity::class.java)
+                val intent = Intent(this, FireBaseActivity::class.java)
                 startActivity(intent)
             }
             binding.customGallery -> {
-                var intent = Intent(this, CustomGalleryActivity::class.java)
+                val intent = Intent(this, CustomGalleryActivity::class.java)
                 startActivity(intent)
             }
             binding.camerax -> {
-                var intent = Intent(this, CameraXActivity::class.java)
+                val intent = Intent(this, CameraXActivity::class.java)
                 startActivity(intent)
             }
             binding.camera1 -> {
-                var intent = Intent(this, Camera1Activity::class.java)
+                val intent = Intent(this, Camera1Activity::class.java)
                 startActivity(intent)
             }
             binding.coroutine -> {
-                var intent = Intent(this, coroutineActivity::class.java)
+                val intent = Intent(this, coroutineActivity::class.java)
                 startActivity(intent)
             }
             binding.room -> {
-                var intent = Intent(this, RoomActivity::class.java)
+                val intent = Intent(this, RoomActivity::class.java)
                 startActivity(intent)
             }
             binding.daumMap -> {
-                var intent = Intent(this, MapActivity::class.java)
+                val intent = Intent(this, MapActivity::class.java)
                 startActivity(intent)
             }
             binding.call -> {
-                var intent = Intent(this, CallActivity::class.java)
+                val intent = Intent(this, CallActivity::class.java)
                 startActivity(intent)
             }
             binding.textTts -> {
-                var intent = Intent(this, TTSActivity::class.java)
+                val intent = Intent(this, TTSActivity::class.java)
                 startActivity(intent)
             }
             binding.video -> {
-                var intent = Intent(this, VideoActivity::class.java)
+                val intent = Intent(this, VideoActivity::class.java)
                 startActivity(intent)
             }
             binding.notification -> {
-                var intent = Intent(this, NotificationActivity::class.java)
+                val intent = Intent(this, NotificationActivity::class.java)
                 startActivity(intent)
             }
             binding.mvvmExam -> {
-                var intent = Intent(this, MvvmExampleActivity::class.java)
+                val intent = Intent(this, MvvmExampleActivity::class.java)
                 startActivity(intent)
             }
             binding.kotlin -> {
-                var intent = Intent(this, KotlinActivity::class.java)
+                val intent = Intent(this, KotlinActivity::class.java)
                 startActivity(intent)
             }
             binding.kakaoLogin -> {
-                var intent = Intent(this, KaKaoLoginActivity::class.java)
+                val intent = Intent(this, KaKaoLoginActivity::class.java)
                 startActivity(intent)
             }
             binding.node -> {
-                var intent = Intent(this, NodeActivity::class.java)
+                val intent = Intent(this, NodeActivity::class.java)
                 startActivity(intent)
             }
             binding.webview -> {
-                var intent = Intent(this, WebviewActivity::class.java)
+                val intent = Intent(this, WebviewActivity::class.java)
                 startActivity(intent)
             }
             binding.naverMap -> {
-                var intent = Intent(this, NaverMapActivity::class.java)
+                val intent = Intent(this, NaverMapActivity::class.java)
                 startActivity(intent)
             }
             binding.LiveData -> {
-                var intent = Intent(this, LiveDataExamPageActivity::class.java)
+                val intent = Intent(this, LiveDataExamPageActivity::class.java)
                 startActivity(intent)
             }
             binding.facebookLogin -> {
-                var intent = Intent(this, FacebookLoginActivity::class.java)
+                val intent = Intent(this, FacebookLoginActivity::class.java)
                 startActivity(intent)
             }
             binding.naverLogin -> {
-                var intent = Intent(this, NaverLoginActivity::class.java)
+                val intent = Intent(this, NaverLoginActivity::class.java)
                 startActivity(intent)
             }
             binding.googleLogin -> {
-                var intent = Intent(this, GoogleLoginActivity::class.java)
+                val intent = Intent(this, GoogleLoginActivity::class.java)
                 startActivity(intent)
             }
             binding.biometric -> {
-                var intent = Intent(this, BiometricActivity::class.java)
+                val intent = Intent(this, BiometricActivity::class.java)
                 startActivity(intent)
             }
             binding.calendar -> {
-                var intent = Intent(this, CalendarActivity::class.java)
+                val intent = Intent(this, CalendarActivity::class.java)
                 startActivity(intent)
             }
             binding.customCalendar -> {
-                var intent = Intent(this, CustomCalendarActivity::class.java)
+                val intent = Intent(this, CustomCalendarActivity::class.java)
                 startActivity(intent)
             }
 
@@ -212,10 +212,10 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         // 필터를 정의하여 broadCastRece클래스에 전송
-        var filter: IntentFilter = IntentFilter();
-        filter.addAction(Intent.ACTION_POWER_CONNECTED);
-        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-        registerReceiver(mReceiver, filter);
+        val filter = IntentFilter()
+        filter.addAction(Intent.ACTION_POWER_CONNECTED)
+        filter.addAction(Intent.ACTION_POWER_DISCONNECTED)
+        registerReceiver(mReceiver, filter)
 
     }
 

@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 object AutoLogin {
-    private val MY_ACCOUNT : String = "account"
+    private const val MY_ACCOUNT : String = "account"
 
     /*
       getSharedPreferences(key, mode)
@@ -20,7 +20,7 @@ object AutoLogin {
         val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
         val editor : SharedPreferences.Editor = prefs.edit()
         editor.putString("MY_ID", input)
-        editor.commit()
+        editor.apply()
     }
     //UserId 보내기
     fun getUserId(context: Context): String {
@@ -32,19 +32,19 @@ object AutoLogin {
         val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
         val editor : SharedPreferences.Editor = prefs.edit()
         editor.putString("MY_PASS", input)
-        editor.commit()
+        editor.apply()
     }
-    //UserPass 보내기
-    fun getUserPass(context: Context): String {
-        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
-        return prefs.getString("MY_PASS", "").toString()
-    }
-    //User 초기화
-    fun clearUser(context: Context) {
-        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
-        val editor : SharedPreferences.Editor = prefs.edit()
-        editor.clear()
-        editor.commit()
-    }
+//    //UserPass 보내기
+//    fun getUserPass(context: Context): String {
+//        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
+//        return prefs.getString("MY_PASS", "").toString()
+//    }
+//    //User 초기화
+//    fun clearUser(context: Context) {
+//        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
+//        val editor : SharedPreferences.Editor = prefs.edit()
+//        editor.clear()
+//        editor.apply()
+//    }
 
 }

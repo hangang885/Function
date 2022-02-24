@@ -14,7 +14,7 @@ class RoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_room)
 
-        var newUser = User("한강","22","010-3151-5947")
+        val newUser = User("한강","22","010-3151-5947")
 
         //싱글톤 패턴을 사용 안한 경우
 /*        val db =Room.databaseBuilder(
@@ -30,7 +30,7 @@ class RoomActivity : AppCompatActivity() {
         val db = UserDatabase.getInstance(applicationContext)
        CoroutineScope(Dispatchers.IO).launch {  //코루틴 사용
            db!!.userDao().insert(newUser)
-           var d = db!!.userDao().getAll()
+           val d = db.userDao().getAll()
            Log.d("Select * From User",d.toString())
 
        }

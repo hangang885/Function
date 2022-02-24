@@ -16,8 +16,6 @@ class CustomGalleryAdapter(private val context: Context, uriArr: ArrayList<Strin
 
     private var count = 0
 
-    lateinit var customGalleryActivity: CustomGalleryActivity
-
     private var items = ArrayList<String>()
     init {
         this.items = uriArr
@@ -25,7 +23,7 @@ class CustomGalleryAdapter(private val context: Context, uriArr: ArrayList<Strin
 
 
 
-    var  sendItems = arrayListOf<String>()
+    private var  sendItems = arrayListOf<String>()
 
 
 
@@ -65,7 +63,7 @@ class CustomGalleryAdapter(private val context: Context, uriArr: ArrayList<Strin
             } else {
                 if (count < 5) {
                     colorFilter(imageView)
-                    Log.d("items[position]",items[position].toString())
+                    Log.d("items[position]", items[position])
                     sendItems.add(items[position])
                     Log.d("sendItems", sendItems.toString())
                     Log.d("sendItems", sendItems.toString())
@@ -74,13 +72,12 @@ class CustomGalleryAdapter(private val context: Context, uriArr: ArrayList<Strin
                 }else {
                     Toast.makeText(context, "5개 까지만 선택이 가능합니다.", Toast.LENGTH_SHORT).show()
                 }
-                var sendItemValue = items[position]
-                Log.d("sendItemValue", sendItemValue.toString())
+                val sendItemValue = items[position]
+                Log.d("sendItemValue", sendItemValue)
             }
 
 
             Log.d("CountValue", count.toString())
-            true
         }
 
 

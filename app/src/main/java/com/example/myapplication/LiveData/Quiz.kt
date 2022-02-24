@@ -11,20 +11,17 @@ data class Quiz(val number:Int, val name: String, val desc: String, val answerTy
         const val Q1 = 1
         const val Q2 = 2
     }
-    var answer = ""
-    var result = ""
-    var maxValue = 0
 }
 
 class QuizMethod {
-    val quizArray: HashMap<Int,Quiz>
-    get(){
-        val hash = hashMapOf(
-            Quiz.Number.Q1 to quiz1,
-            Quiz.Number.Q2 to quiz2 )
-        return hash
+    private val quizArray: HashMap<Int,Quiz>
+        get() {
+            return hashMapOf(
+                Quiz.Number.Q1 to quiz1,
+                Quiz.Number.Q2 to quiz2
+            )
 
-    }
+        }
 
     private val quiz1: Quiz
     get(){

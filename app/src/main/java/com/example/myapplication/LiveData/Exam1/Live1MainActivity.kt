@@ -3,8 +3,6 @@ package com.example.myapplication.LiveData.Exam1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityLive1MainBinding
 
 class Live1MainActivity : AppCompatActivity() {
@@ -18,14 +16,14 @@ class Live1MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLive1MainBinding.inflate(layoutInflater)
-        var view = binding.root
+        val view = binding.root
         setContentView(view)
 
-        liveText.observe(this, Observer {
+        liveText.observe(this, {
 
             binding.liveText.text = it
         })
-        liveText2.observe(this, Observer {
+        liveText2.observe(this, {
             binding.liveText2.text = it
         })
 

@@ -16,7 +16,7 @@ class VideoActivity : AppCompatActivity() {
         binding = ActivityVideoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var videoUri:Uri = Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        val videoUri:Uri = Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
 
         binding.video.setMediaController(MediaController(this))
         binding.video.setVideoURI(videoUri)

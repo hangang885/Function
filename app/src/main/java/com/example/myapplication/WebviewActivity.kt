@@ -1,10 +1,10 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.webkit.WebChromeClient
-import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.example.myapplication.databinding.ActivityWebviewBinding
@@ -16,11 +16,12 @@ class WebviewActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private var url = "https://www.daum.net"
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityWebviewBinding.inflate(layoutInflater)
-        var view = binding.root
+        val view = binding.root
 
         setContentView(view)
 

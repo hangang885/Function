@@ -28,7 +28,7 @@ class NaverMapActivity : OnMapReadyCallback,FragmentActivity(),NaverMap.OnLocati
                 fm.beginTransaction().add(R.id.map_fragment, it).commit()
             }
         val coord = LatLng(37.5670135, 126.9783740)
-        mapFragment.getMapAsync(this);
+        mapFragment.getMapAsync(this)
         Toast.makeText(
             this,
             "위도: " + coord.latitude + ", 경도: " + coord.longitude,

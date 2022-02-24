@@ -8,10 +8,7 @@ import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.view.View
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.example.myapplication.databinding.ActivityCallBinding
-import com.example.myapplication.databinding.ActivityMapBinding
-import java.util.jar.Manifest
 
 class CallActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityCallBinding
@@ -34,18 +31,18 @@ class CallActivity : AppCompatActivity() {
         mBinding.writeNumber.addTextChangedListener(PhoneNumberFormattingTextWatcher())
     }
 
-    fun onClick(view: View) {
+    private fun onClick(view: View) {
 
         when (view) {
             mBinding.opencall -> {
-                var intent =
+                val intent =
                     Intent(Intent.ACTION_DIAL, Uri.parse("tel: ${mBinding.writeNumber.text}"))
                 startActivity(intent)
             }
             mBinding.call -> {
 
                 if(CheckPermession()){
-                    var intent =
+                    val intent =
                         Intent(Intent.ACTION_CALL, Uri.parse("tel: ${mBinding.writeNumber.text}"))
                     startActivity(intent)
                 }
@@ -54,7 +51,7 @@ class CallActivity : AppCompatActivity() {
         }
     }
 
-    fun CheckPermession(): Boolean {
+    private fun CheckPermession(): Boolean {
         if ((ActivityCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.CALL_PHONE

@@ -1,12 +1,11 @@
 package com.example.myapplication.Naver
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityNaverLoginBinding
 import com.nhn.android.naverlogin.OAuthLogin
 import com.nhn.android.naverlogin.OAuthLogin.mOAuthLoginHandler
-import com.nhn.android.naverlogin.ui.view.OAuthLoginButton
 
 class NaverLoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNaverLoginBinding
@@ -14,7 +13,7 @@ class NaverLoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNaverLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var mOAuthLoginModule = OAuthLogin.getInstance();
+        val mOAuthLoginModule = OAuthLogin.getInstance()
         mOAuthLoginModule.init(
             this,
             "YG0VXunqHUZqtWwx8P7G"
@@ -22,12 +21,11 @@ class NaverLoginActivity : AppCompatActivity() {
             ,"Test"
             //,OAUTH_CALLBACK_INTENT
             // SDK 4.1.4 버전부터는 OAUTH_CALLBACK_INTENT변수를 사용하지 않습니다.
-        );
+        )
 
-        var mOAuthLoginButton = binding.buttonOAuthLoginImg
-        mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
-        mOAuthLoginButton.setBgResourceId(R.drawable.btng_short);
-
+        val mOAuthLoginButton = binding.buttonOAuthLoginImg
+        mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler)
+        mOAuthLoginButton.setBgResourceId(R.drawable.btng_short)
     }
 
 

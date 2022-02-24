@@ -1,36 +1,21 @@
 package com.example.myapplication
 
+import android.R
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.Typeface
-import android.graphics.drawable.StateListDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
 import android.text.style.StyleSpan
 import android.util.Log
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.myapplication.databinding.ActivityCustomCalendarBinding
 import com.prolificinteractive.materialcalendarview.*
 import com.prolificinteractive.materialcalendarview.spans.DotSpan
 import java.util.*
-import com.prolificinteractive.materialcalendarview.DayViewFacade
-
-import com.prolificinteractive.materialcalendarview.CalendarDay
-
-import android.R
-
-import android.widget.TextView
-
-import android.app.Activity
-import android.content.Context
-
-import android.graphics.drawable.Drawable
-import android.text.style.BackgroundColorSpan
-import android.view.View
-import androidx.core.content.ContextCompat
-
-import com.prolificinteractive.materialcalendarview.DayViewDecorator
 
 
 class CustomCalendarActivity : AppCompatActivity() {
@@ -72,16 +57,20 @@ class CustomCalendarActivity : AppCompatActivity() {
             val memo = prefs.getString(date.toString(), "")
             Log.d("han_date", date.toString())
             binding.memo.setText(memo)
+            clickDate = date.toString()
+            binding.customCalendar.addDecorator(ClickDayDecorator(date))
+
             when {
                 memo.isNullOrEmpty() -> {
                     binding.save.text = "저장"
                     binding.delete.visibility = View.GONE
+
                 }
                 else -> {
                     binding.save.text = "수정"
                     binding.delete.visibility = View.VISIBLE
                     binding.delete.setOnClickListener {
-                        var editor = prefs.edit()
+                        val editor = prefs.edit()
                         editor.remove(date.toString())
                         editor.apply()
                         binding.customCalendar.invalidateDecorators()
@@ -97,6 +86,19 @@ class CustomCalendarActivity : AppCompatActivity() {
             binding.customCalendar.addDecorator(MemoDecorator(prefs))
         }
 
+    }
+
+}
+
+class ClickDayDecorator(var date: CalendarDay) : DayViewDecorator {
+    override fun shouldDecorate(day: CalendarDay?): Boolean {
+        Log.d("han_month",(date.month+1).toString())
+        Log.d("han_max",date.calendar.getActualMaximum(Calendar.DAY_OF_MONTH).toString())
+        return date.day - 4 < day!!.day && date.day + 4 > day.day
+    }
+
+    override fun decorate(view: DayViewFacade?) {
+        view?.addSpan(DotSpan(10F, Color.parseColor("#FF9800")))
     }
 
 }
@@ -121,7 +123,6 @@ class MemoDecorator(preferences: SharedPreferences) : DayViewDecorator {
     private var prefs = preferences
     override fun shouldDecorate(day: CalendarDay?): Boolean {
         day?.copyTo(calendar)
-        Log.d("han_day", day.toString())
         val memo = prefs.getString(day.toString(), "")
         return memo != ""
     }

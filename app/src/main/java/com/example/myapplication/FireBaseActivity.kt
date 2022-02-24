@@ -1,19 +1,12 @@
 package com.example.myapplication
 
-import android.content.Intent
-import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityFireBaseBinding
-import com.example.myapplication.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.messaging.ktx.messaging
 
 class FireBaseActivity : AppCompatActivity() {
     // 전역 변수로 바인딩 객체 선언

@@ -7,7 +7,6 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
-import android.net.Uri
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
@@ -16,7 +15,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-public class MyFirebaseMessagingService : FirebaseMessagingService() {
+class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
         // 앱이 foreground 상태에 있을 때 FCM 알림을 받았다면 onMessageReceived() 콜백 메소드가 호출됨으로써 FCM 알림이 대신된다.
@@ -24,7 +23,7 @@ public class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         // 메시지 유형이 데이터 메시지일 경우
         // Check if message contains a data payload.
-        var fcmBody: String = ""
+        var fcmBody = ""
         if (remoteMessage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
             fcmBody = remoteMessage.data.get("Body").toString()
@@ -33,7 +32,7 @@ public class MyFirebaseMessagingService : FirebaseMessagingService() {
         // 메시지 유형이 알림 메시지일 경우
         // Check if message contains a notification payload.
         // Set FCM title, body to android notification
-        var notificationInfo: Map<String, String> = mapOf()
+        var notificationInfo: Map<String, String>
         remoteMessage.notification?.let {
             notificationInfo = mapOf(
                 "title" to it.title.toString(),

@@ -35,7 +35,7 @@ class AddActivity : AppCompatActivity() {
             if (name.isEmpty() || number.isEmpty()) {
                 Toast.makeText(this, "Please enter name and number.", Toast.LENGTH_SHORT).show()
             } else {
-                val initial = name[0].toUpperCase()
+                val initial = name[0].uppercaseChar()
                 val contact = Contact(id, name, number, initial)
                 contactViewModel.insert(contact)
                 finish()

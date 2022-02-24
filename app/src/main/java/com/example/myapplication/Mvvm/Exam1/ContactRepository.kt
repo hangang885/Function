@@ -17,18 +17,18 @@ class ContactRepository(application: Application) {
 
     fun insert(contact: Contact){
         try{
-            val thread = Thread(Runnable {
+            val thread = Thread {
                 contactDao.insert(contact)
-            })
+            }
             thread.start()
         }catch (e:Exception){}
     }
 
     fun delete(contact: Contact){
         try{
-            val thread = Thread(Runnable {
+            val thread = Thread {
                 contactDao.delete(contact)
-            })
+            }
             thread.start()
         }
         catch (e:Exception){}

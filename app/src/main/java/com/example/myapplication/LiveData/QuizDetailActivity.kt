@@ -1,17 +1,15 @@
 package com.example.myapplication.LiveData
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityQuizDetailBinding
-import java.util.*
 
 class QuizDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityQuizDetailBinding
-    lateinit var model: QuizDetailViewModel
+    private lateinit var model: QuizDetailViewModel
 
     private val observeListener = Observer<Quiz> {
         it?.let { quiz ->

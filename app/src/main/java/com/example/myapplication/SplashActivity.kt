@@ -1,16 +1,14 @@
 package com.example.myapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
-import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.databinding.ActivitySplashBinding
-import android.content.pm.PackageManager
-
-import android.content.pm.PackageInfo
 import android.util.Base64
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.databinding.ActivitySplashBinding
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -30,10 +28,10 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         getHashKey()
 
-        var handler:Handler = Handler()
-        handler.postDelayed(Runnable {
+        val handler = Handler()
+        handler.postDelayed({
             run {
-                var intent = Intent(applicationContext, LoginActivity::class.java)
+                val intent = Intent(applicationContext, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }

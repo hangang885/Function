@@ -1,10 +1,9 @@
 package com.example.myapplication.Mvvm.Exam1
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.ActivityMvvmExampleBinding
@@ -35,7 +34,7 @@ class MvvmExampleActivity : AppCompatActivity() {
         mBinding.mainRecycleview.setHasFixedSize(true)
 
         contactViewModel =ViewModelProviders.of(this).get(ContactViewModel::class.java)
-        contactViewModel.getAll().observe(this, Observer<List<Contact>>{
+        contactViewModel.getAll().observe(this, {
             contacts ->adapter.setContacts(contacts!!)
         })
 

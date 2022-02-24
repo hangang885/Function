@@ -22,7 +22,7 @@ class BiometricActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityBiometricBinding.inflate(layoutInflater)
-        var view = binding.root
+        val view = binding.root
 
         setContentView(view)
 

@@ -26,8 +26,8 @@ class CustomGalleryActivity : AppCompatActivity() {
     // 매번 null 체크를 할 필요 없이 편의성을 위해 바인딩 변수 재 선언
     private val binding get() = mBinding!!
 
-    var uriArr = ArrayList<String>()
-    var customGalleryAdapter = CustomGalleryAdapter(this@CustomGalleryActivity, uriArr)
+    private var uriArr = ArrayList<String>()
+    private var customGalleryAdapter = CustomGalleryAdapter(this@CustomGalleryActivity, uriArr)
     val count: Int =0
     private val REQUEST_READ_EXTERMAL_STORAGE = 1000
 

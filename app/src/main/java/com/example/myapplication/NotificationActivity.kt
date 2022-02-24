@@ -31,22 +31,22 @@ class NotificationActivity : AppCompatActivity() {
     }
 
     fun createNotification(){
-        var builder: NotificationCompat.Builder = NotificationCompat.Builder(this,"default")
+        val builder: NotificationCompat.Builder = NotificationCompat.Builder(this,"default")
 
         builder.setSmallIcon(R.mipmap.ic_launcher)
         builder.setContentTitle("한강이에요")
         builder.setContentText("한강 알람이라구요")
         builder.setAutoCancel(true)
 
-        var intent: Intent = Intent(this,NotificationActivity::class.java)
-        var pendingIntent: PendingIntent = PendingIntent.getActivities(this,0,
+        val intent = Intent(this,NotificationActivity::class.java)
+        val pendingIntent: PendingIntent = PendingIntent.getActivities(this,0,
             arrayOf(intent),PendingIntent.FLAG_UPDATE_CURRENT)
 
         builder.setContentIntent(pendingIntent)
         builder.setVibrate(longArrayOf(0,2000, 1000, 3000))
 
 
-            var notificationManager:NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager:NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             notificationManager.createNotificationChannel( NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT))
         }

@@ -1,7 +1,5 @@
 package com.example.myapplication.retrofit2
 
-import android.util.Log
-import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
 
-    var url = "http://localhost:8012"
+    private var url = "http://localhost:8012"
 
     private var retrofit : Retrofit? = null
     private var client = OkHttpClient()
@@ -21,14 +19,14 @@ class RetrofitClient {
             .readTimeout(1, TimeUnit.MINUTES)
             .writeTimeout(1, TimeUnit.MINUTES)
             .addInterceptor { chain ->
-                var requestOrigin = chain.request()
+                val requestOrigin = chain.request()
 
 
 
-                var requestBuilder = requestOrigin.newBuilder()
+                val requestBuilder = requestOrigin.newBuilder()
                     .addHeader("h","h")
                     .method(requestOrigin.method(), requestOrigin.body())
-                var request = requestBuilder.build()
+                val request = requestBuilder.build()
                 chain.proceed(request)
             }.build()
 

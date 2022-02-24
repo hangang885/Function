@@ -25,8 +25,8 @@ class KotlinActivity : AppCompatActivity() {
         // sort 메소드는 해당 Collection 의 원소 위치가  변경된다.
         // 기존 Collection 은 그대로 둔 채 새로운 Collection 으로 받기 원한다면 sorted 메소드를 사용해야 한다.
         // sorted 메소드를 사용하면 기존 Collection 은 변하지 않는다.
-        var list2 = mutableListOf(1, 2, 7, 6, 5, 6)
-        var sorted = list2.sorted()
+        val list2 = mutableListOf(1, 2, 7, 6, 5, 6)
+        val sorted = list2.sorted()
         println(sorted)// 1, 2, 5, 6, 6, 7
         println(list2)// 1, 2, 7, 6, 5, 6
 

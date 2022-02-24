@@ -38,7 +38,7 @@ class CalendarActivity : AppCompatActivity() {
         binding.calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
             Log.d("han_Calendar", "$year $month $dayOfMonth")
             date = "$year/$month/$dayOfMonth"
-            var memo = prefs.getString(date, "")
+            val memo = prefs.getString(date, "")
             if(memo.isNullOrEmpty()){
                 binding.save.text = "저장"
                 binding.delete.visibility = View.GONE
@@ -50,8 +50,8 @@ class CalendarActivity : AppCompatActivity() {
             binding.edit.setText(memo)
         }
         binding.save.setOnClickListener {
-            var memo = binding.edit.text.toString()
-            var editor = prefs.edit()
+            val memo = binding.edit.text.toString()
+            val editor = prefs.edit()
             editor.putString(date, memo)
             editor.apply()
         }
