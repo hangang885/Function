@@ -37,6 +37,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".dagger.Dagger2Activity"
+            android:exported="true" />
+        <activity
             android:name=".CustomCalendarActivity"
             android:exported="true" />
         <activity

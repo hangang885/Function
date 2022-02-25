@@ -11,6 +11,7 @@ import com.example.myapplication.Google.GoogleLoginActivity
 import com.example.myapplication.LiveData.LiveDataExamPageActivity
 import com.example.myapplication.Mvvm.Exam1.MvvmExampleActivity
 import com.example.myapplication.Naver.NaverLoginActivity
+import com.example.myapplication.dagger.Dagger2Activity
 import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -101,6 +102,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.customCalendar.setOnClickListener {
             onClick(binding.customCalendar)
+        }
+        binding.dagger.setOnClickListener {
+            onClick(binding.dagger)
         }
 
 
@@ -203,6 +207,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.customCalendar -> {
                 val intent = Intent(this, CustomCalendarActivity::class.java)
+                startActivity(intent)
+            }
+            binding.dagger -> {
+                val intent = Intent(this, Dagger2Activity::class.java)
                 startActivity(intent)
             }
 
